@@ -1,0 +1,16 @@
+<html lang="eng"
+      xmlns="http://www.thymeleaf.org">
+
+<td th:fragment="daysLeft(t)">
+
+    <span th:with="days=${t.daysLeftUntilDeadline(t.date)}"
+          th:class="${t.completed} ? 'complited' :
+                                (${days>1} ? '1day':
+                                        (${days>-1} ? '-1day' :
+                                                'more than -1'))"
+          th:text="${t.completed} ? '' : ${days}"
+    >
+    </span>
+
+</td>
+</html>
